@@ -2,11 +2,11 @@ package com.tonicartos.superslim.internal
 
 import android.os.Parcel
 import android.os.Parcelable
-import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.RecyclerView.NO_POSITION
 import android.util.Log
 import android.util.SparseArray
 import android.view.View
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.NO_POSITION
 import com.tonicartos.superslim.*
 import com.tonicartos.superslim.SectionConfig.Companion.GUTTER_AUTO
 import com.tonicartos.superslim.internal.layout.FooterLayoutManager

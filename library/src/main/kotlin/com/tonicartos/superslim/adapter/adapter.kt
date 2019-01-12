@@ -1,7 +1,6 @@
 package com.tonicartos.superslim.adapter
 
-import android.support.annotation.IntDef
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import com.tonicartos.superslim.*
 import com.tonicartos.superslim.layout.LinearSectionConfig
 import java.util.*

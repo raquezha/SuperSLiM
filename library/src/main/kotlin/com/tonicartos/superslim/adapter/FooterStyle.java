@@ -2,10 +2,10 @@ package com.tonicartos.superslim.adapter;
 
 import com.tonicartos.superslim.SectionConfig;
 
-import android.support.annotation.IntDef;
-
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+
+import androidx.annotation.IntDef;
 
 @IntDef({SectionConfig.FOOTER_END,
         SectionConfig.FOOTER_STICKY,

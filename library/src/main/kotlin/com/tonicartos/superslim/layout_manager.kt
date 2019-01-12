@@ -2,12 +2,13 @@ package com.tonicartos.superslim
 
 import android.content.Context
 import android.os.Parcelable
-import android.support.annotation.IntDef
-import android.support.v4.view.ViewCompat
-import android.support.v7.widget.RecyclerView
+
 import android.util.AttributeSet
 import android.util.Log
 import android.view.View
+import androidx.annotation.IntDef
+import androidx.core.view.ViewCompat
+import androidx.recyclerview.widget.RecyclerView
 import com.tonicartos.superslim.BuildConfig.DEBUG
 import com.tonicartos.superslim.internal.*
 
@@ -188,36 +189,32 @@ class SuperSlimLayoutManager() : RecyclerView.LayoutManager(), ManagerHelper, Co
 // TODO: Custom find views.
 //    override fun findViewByPosition(position: Int) = graph?.findViewByPosition(position, this)
 
-    /****************************************************
-     * Scroll indicator computation
-     ****************************************************/
 
-    override fun computeVerticalScrollExtent(state: RecyclerView.State?): Int {
-        // TODO: compute scroll
+    override fun computeVerticalScrollExtent(state: RecyclerView.State): Int {
         return super.computeVerticalScrollExtent(state)
     }
 
-    override fun computeVerticalScrollRange(state: RecyclerView.State?): Int {
+    override fun computeVerticalScrollRange(state: RecyclerView.State): Int {
         // TODO: compute scroll
         return super.computeVerticalScrollRange(state)
     }
 
-    override fun computeVerticalScrollOffset(state: RecyclerView.State?): Int {
+    override fun computeVerticalScrollOffset(state: RecyclerView.State): Int {
         // TODO: compute scroll
         return super.computeVerticalScrollOffset(state)
     }
 
-    override fun computeHorizontalScrollExtent(state: RecyclerView.State?): Int {
+    override fun computeHorizontalScrollExtent(state: RecyclerView.State): Int {
         // TODO: compute scroll
         return super.computeHorizontalScrollExtent(state)
     }
 
-    override fun computeHorizontalScrollRange(state: RecyclerView.State?): Int {
+    override fun computeHorizontalScrollRange(state: RecyclerView.State): Int {
         // TODO: compute scroll
         return super.computeHorizontalScrollRange(state)
     }
 
-    override fun computeHorizontalScrollOffset(state: RecyclerView.State?): Int {
+    override fun computeHorizontalScrollOffset(state: RecyclerView.State): Int {
         // TODO: compute scroll
         return super.computeHorizontalScrollOffset(state)
     }
@@ -344,7 +341,7 @@ class SuperSlimLayoutManager() : RecyclerView.LayoutManager(), ManagerHelper, Co
 
     override fun getAttachedRawView(position: Int): View {
         require(position in 0..(childCount - 1))
-        return getChildAt(position)
+        return getChildAt(position)!!
     }
 
     override fun detachViewAtPosition(position: Int) = getChildAt(position)?.also { detachViewAt(position) }
@@ -418,21 +415,18 @@ class SuperSlimLayoutManager() : RecyclerView.LayoutManager(), ManagerHelper, Co
         graph!!.queueSectionUpdated(section, config.copy())
     }
 
-    /*************************
-     * Item changes from recycler view
-     *************************/
 
-    override fun onItemsAdded(recyclerView: RecyclerView?, positionStart: Int, itemCount: Int) {
+    override fun onItemsAdded(recyclerView: RecyclerView, positionStart: Int, itemCount: Int) {
         if (ENABLE_ITEM_CHANGE_LOGGING) Log.d("Sslm", "itemsAdded(position: $positionStart, itemCount: $itemCount)")
         addItems(positionStart, itemCount)
     }
 
-    override fun onItemsRemoved(recyclerView: RecyclerView?, positionStart: Int, itemCount: Int) {
+    override fun onItemsRemoved(recyclerView: RecyclerView, positionStart: Int, itemCount: Int) {
         if (ENABLE_ITEM_CHANGE_LOGGING) Log.d("Sslm", "itemsRemoved(position: $positionStart, itemCount: $itemCount)")
         removeItems(positionStart, itemCount)
     }
 
-    override fun onItemsMoved(recyclerView: RecyclerView?, from: Int, to: Int, itemCount: Int) {
+    override fun onItemsMoved(recyclerView: RecyclerView, from: Int, to: Int, itemCount: Int) {
         if (ENABLE_ITEM_CHANGE_LOGGING) Log.d("Sslm", "itemsMoved(from: $from, to: $to, itemCount: $itemCount)")
         moveItems(from, to, itemCount)
     }
@@ -463,7 +457,7 @@ class SuperSlimLayoutManager() : RecyclerView.LayoutManager(), ManagerHelper, Co
     }
 }
 
-@IntDef(SuperSlimLayoutManager.HORIZONTAL.toLong(),
-        SuperSlimLayoutManager.VERTICAL.toLong())
+@IntDef(SuperSlimLayoutManager.HORIZONTAL,
+        SuperSlimLayoutManager.VERTICAL)
 @Retention(AnnotationRetention.SOURCE)
 annotation class Orientation

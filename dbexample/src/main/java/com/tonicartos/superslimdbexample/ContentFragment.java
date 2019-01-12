@@ -5,17 +5,18 @@ import com.tonicartos.superslim.adapter.Section;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.CursorLoader;
-import android.support.v4.content.Loader;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.fragment.app.Fragment;
+import androidx.loader.app.LoaderManager;
+import androidx.loader.content.CursorLoader;
+import androidx.loader.content.Loader;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -28,8 +29,7 @@ public class ContentFragment extends Fragment {
 
     Adapter mAdapter;
 
-    private LoaderManager.LoaderCallbacks<Cursor> mLoaderCallbacks
-            = new LoaderManager.LoaderCallbacks<Cursor>() {
+    private LoaderManager.LoaderCallbacks<Cursor> mLoaderCallbacks = new LoaderManager.LoaderCallbacks<Cursor>() {
 
         @Override
         public Loader<Cursor> onCreateLoader(int id, Bundle args) {
@@ -65,8 +65,9 @@ public class ContentFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
-        getLoaderManager().restartLoader(LOADER, null, mLoaderCallbacks);
+        recyclerView = view.findViewById(R.id.recycler_view);
+        LoaderManager.getInstance(this).restartLoader(LOADER, null, mLoaderCallbacks);
+        // getLoaderManager().restartLoader(LOADER, null, mLoaderCallbacks);
 
         setHasOptionsMenu(true);
 

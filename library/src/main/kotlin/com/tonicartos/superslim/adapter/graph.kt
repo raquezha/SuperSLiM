@@ -68,13 +68,9 @@ open class Item(val type: Int = 0, val data: Any? = null) : Node.ItemNode() {
  * A section in the graph.
  */
 class Section internal constructor(contract: SectionContract? = null) : Node.SectionNode(), Iterable<Node> {
-    private val _contract: SectionContract?
+    private val _contract: SectionContract? = contract
     internal val contract: SectionContract?
         get() = _contract ?: parent?.contract
-
-    init {
-        _contract = contract
-    }
 
     /**
      * An id assigned by the layout manager.

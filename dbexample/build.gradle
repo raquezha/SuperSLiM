@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.tonicartos.superslimdbexample"
-        minSdkVersion 11
+        minSdkVersion 14
         targetSdkVersion target_sdk
         versionCode 1
         versionName "1.0"
@@ -20,13 +20,14 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    compile 'com.squareup.moshi:moshi:1.1.0'
-    compile 'com.squareup.okio:okio:1.6.0'
+    implementation 'com.squareup.moshi:moshi:1.1.0'
+    implementation 'com.squareup.okio:okio:1.14.0'
 
-    compile "com.android.support:recyclerview-v7:$supportlib_version"
-    compile "com.android.support:appcompat-v7:$supportlib_version"
-    compile "com.android.support:design:$supportlib_version"
-    compile project(':library')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
+    implementation "androidx.appcompat:appcompat:$appcompat_version"
+    implementation "com.google.android.material:material:$material_design_version"
+    implementation project(':library')
 }

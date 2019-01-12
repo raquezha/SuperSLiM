@@ -7,7 +7,6 @@ interface ColumnsSectionConfigurationMixin {
 
 class ColumnsConfiguration : ColumnsSectionConfigurationMixin {
     override var numColumns = 0
-        get() = field
         set(value) {
             field = value
             columnWidth = -1

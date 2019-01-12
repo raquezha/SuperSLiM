@@ -1,5 +1,6 @@
 package com.tonicartos.superslimdbexample;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.tonicartos.superslim.SectionConfig;
 import com.tonicartos.superslim.adapter.Item;
 import com.tonicartos.superslim.adapter.Section;
@@ -7,14 +8,14 @@ import com.tonicartos.superslim.adapter.SuperSlimAdapter;
 import com.tonicartos.superslim.layout.LinearSectionConfig;
 
 import android.database.Cursor;
-import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 class Adapter extends SuperSlimAdapter<String, Adapter.ViewHolder> {
 

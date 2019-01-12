@@ -1,6 +1,6 @@
 package com.tonicartos.superslim.internal
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import com.tonicartos.superslim.AdapterContract
 
 internal interface ItemManagement {

@@ -1,7 +1,7 @@
 package com.tonicartos.superslim
 
-import android.support.v7.widget.RecyclerView
 import android.view.View
+import androidx.recyclerview.widget.RecyclerView
 import com.tonicartos.superslim.internal.AttachedView
 import com.tonicartos.superslim.internal.BaseLayoutHelper
 import com.tonicartos.superslim.internal.RootLayoutHelper
