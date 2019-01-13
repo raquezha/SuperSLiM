@@ -65,7 +65,7 @@ class SectionData {
     internal var subsections = emptyList<SectionState>()
 }
 
-class SuperSlimLayoutManager() : RecyclerView.LayoutManager(), ManagerHelper, ConfigHelper,
+abstract class SuperSlimLayoutManager() : RecyclerView.LayoutManager(), ManagerHelper, ConfigHelper,
                                  ItemManagement by ItemManager() {
     @JvmOverloads @Suppress("unused")
     constructor(@Suppress("unused_parameter") context: Context, @Orientation orientation: Int = VERTICAL,
